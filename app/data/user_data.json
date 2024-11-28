@@ -1,0 +1,28 @@
+{
+    "5989eeb7-fc7b-45ae-9748-98b51501c202": {
+        "type": "user",
+        "id": "5989eeb7-fc7b-45ae-9748-98b51501c202",
+        "first_name": "Super",
+        "last_name": "User",
+        "email": "super.user@gmail.com",
+        "password": "$2b$12$SulIBTY593nUODgdPmyXEeYb13Xi.FVpiS.PNT3HTkxpDm3dWZyMK",
+        "is_admin": true,
+        "places": [],
+        "created_at": "2024-11-28T22:14:33.165183",
+        "updated_at": "2024-11-28T22:14:33.165190"
+    },
+    "caab3904-7991-4cd7-8f2a-311029ddeb70": {
+        "type": "user",
+        "id": "caab3904-7991-4cd7-8f2a-311029ddeb70",
+        "first_name": "Johnny",
+        "last_name": "Rocker",
+        "email": "johnny.rocker@gmail.com",
+        "password": "$2b$12$EENcAJVcM0vHpm3myJBXTOvV2DC7Y5MAoqxd0IXQj7zrMnEfQWrNe",
+        "is_admin": false,
+        "places": [
+            "54650879-3650-4e0b-9f97-67ecb8911ffc"
+        ],
+        "created_at": "2024-11-28T22:19:59.884628",
+        "updated_at": "2024-11-28T21:22:13.296296"
+    }
+}

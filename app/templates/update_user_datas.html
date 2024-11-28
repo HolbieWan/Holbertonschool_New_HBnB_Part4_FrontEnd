@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update user datas</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" type="image/png" href="/static/images/icon.png">
+</head>
+<body>
+  {% include 'header.html' %}
+  <main>
+      <div class="vertical-align">
+          <section id="register-user" class="background-card">
+              <h2>Update user datas</h2>
+              <form id="register-user-form">
+                <!-- Username Field -->
+                <label for="user_first_name">First-name:</label>
+                <input type="text" id="user_first_name" name="user_first_name_text" required></input>
+                <!-- User last-name Field -->
+                <label for="user_last_name">Last-name:</label>
+                <input type="text" id="user_last_name" name="user_last_name_text" required></inp>
+                <!-- Email Field -->
+                <label for="user_email">Email:</label>
+                <input type="email" id="user_email" name="user_email_text" required></input>
+                <!-- Password Field -->
+                <label for="user_password">Password:</label>
+                <input type="password" id="user_password" name="user_password_text" required></input>
+                <!-- Confirm Password Field -->
+                <label for="confirm_user_password">Confirm Password:</label>
+                <input type="password" id="confirm_user_password" name="confirm_password_text" required></input>
+
+                <button type="submit">Submit</button>
+              </form>
+          </section>
+      </div>
+  </main>
+  {% include 'footer.html' %}
+  <script src="/static/auth_links.js"></script>
+  <script src="/static/update_user_datas.js"></script>
+</body>
+</html>

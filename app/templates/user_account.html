@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of your own places</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" type="image/png" href="/static/images/icon.png">
+</head>
+<body>
+  {% include 'header.html' %}
+  <main>
+      <section id="Places" class="section">
+          <div id="user_buttons" class="background-card">
+            <header class="section-header">
+                  <h2 class="section-title">Your account</h2>
+            </header>
+            <button type="submit" id="update-account-button" class="update-account-button">Update your datas</button>
+            <button type="submit" id="delete-account-button" class="delete-account-button">Delete your account</button>
+          </div>
+          <div class="background-card">
+              <header class="section-header">
+                  <h2 class="section-title">Your places</h2>
+              </header>
+              
+              <section id="places-list">
+                  <!-- Place cards will be dynamically populated here -->
+              </section>
+          </div>
+          <div class="vertical-align">
+            <section id="reviews" class="review-card">
+                <header class="section-header">
+                    <h2 class="section-title">Your reviews</h2>
+                </header>
+                <div id="review_list">
+                    <!-- Reviews will be populated here -->
+                </div>
+            </section>
+          </div>
+      </section>
+  </main>
+  {% include 'footer.html' %}
+  <script src="/static/get_user_places.js"></script>
+  <script src="/static/get_user_reviews.js"></script>
+  <script src="/static/delete_user_account.js"></script>
+  <script>
+    document.getElementById("update-account-button").addEventListener("click", function () {
+        window.location.href = "/HBnB/update_user_datas";
+    });
+  </script>
+  <script src="/static/auth_links.js"></script>
+</body>
+</html>
