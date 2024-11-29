@@ -28,6 +28,33 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
+    async function logout() {
+      try {
+        const response = await fetch("/api/v1/auth/logout", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${getCookie("jwt_token")}`,
+          },
+        });
+
+        if (response.ok) {
+          clearCookies();
+          // window.location.href = "/HBnB";
+        } else {
+          console.error("Failed to log out");
+        }
+      } catch (error) {
+        console.error("Error logging out:", error);
+      }
+    }
+
+    function clearCookies() {
+      document.cookie =
+        "jwt_token=; path=/HBnB; expires=0; secure; SameSite=Strict";
+      document.cookie =
+        "user_id=; path=/HBnB; expires=0; secure; SameSite=Strict";
+    }
+
     register_form.addEventListener('submit', async function (event) {
         event.preventDefault();
 
@@ -85,7 +112,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const user_data = await response.json();
             console.log('User registered successfully:', user_data);
             alert(`New-user: ${user_data.first_name} ${user_data.last_name} registered successfully!\n You can log in with your credentials now`);
-
+            
+            logout();
             // Redirect to the login page
             window.location.href = '/HBnB/login';
 

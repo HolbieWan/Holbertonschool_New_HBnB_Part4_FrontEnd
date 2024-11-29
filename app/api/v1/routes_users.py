@@ -300,7 +300,7 @@ class UserResource(Resource):
                 facade_relation_manager = current_app.extensions['FACADE_RELATION_MANAGER']
 
             if not is_admin and user_id != current_user["id"]:
-                raise ValueError('error: Unauthorized action, you can only modify your own data')
+                raise ValueError('error: Unauthorized action, you can only delete your own data')
         
             facade_relation_manager.delete_user_and_associated_instances(user_id)
             return {"message": f"User: {user_id} has been deleted"}, 200
@@ -313,7 +313,7 @@ class UserResource(Resource):
 
  #   <------------------------------------------------------------------------>
 
-@api.route('/<string:user_id>/place')
+@api.route('/<string:user_id>/places')
 @api.param('user_id', 'The User identifier')
 class UserPlaceDetails(Resource):
     """Resource for creating a place for a user or retrieving places by user."""

@@ -41,9 +41,9 @@ class Place(BaseModel):
         super().__init__()
         self.title = title
         self.description = description
-        self.price = price
-        self.latitude = latitude
-        self.longitude = longitude
+        self.price = float(price)
+        self.latitude = float(latitude)
+        self.longitude = float(longitude)
         self.owner_first_name = owner_first_name
         self.owner_id = owner_id
         self.reviews = reviews if reviews is not None else []

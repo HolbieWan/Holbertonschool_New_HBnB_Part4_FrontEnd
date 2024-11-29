@@ -382,12 +382,12 @@
   --card-border-radius: 10px;
   --card-max-width: 800px; /* Adjusted to a smaller max-width */
   --background-color-main: #f0f0f0;
-  --normal-button-color:rgb(0, 166, 255);
-  --update-button-color:rgb(0, 119, 255);
-  --delete-button-color:rgb(255, 0, 0);
-  --normal-button-hoover-color:rgba(0, 166, 255, 0.5);
-  --update-button-hover-color:rgba(0, 119, 255, 0.5);
-  --delete-button-hover-color:rgba(255, 0, 0, 0.5);
+  --normal-button-color:rgb(30, 176, 255);
+  --update-button-color:rgb(0, 140, 235);
+  --delete-button-color:rgb(255, 62, 62);
+  --normal-button-hoover-color:rgba(30, 176, 255, 0.8);
+  --update-button-hover-color:rgba(0, 140, 235, 0.8); 
+  --delete-button-hover-color:rgba(255, 62, 62, 0.8);
 }
 
 /* Light theme */

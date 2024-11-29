@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('JWT token:', token);  // Debug log
 
         try {
-            const response = await fetch(`/api/v1/reviews/`, {
+            const response = await fetch(`/api/v1/places/${placeId}/reviews/${userId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) {
                 const errorText = await response.text();
                 console.error('Failed to submit review:', errorText);
-                alert(`Failed to submit review: ${errorText}`);
+                alert(`${errorText}`);
                 return;
             }
 
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const token = getCookie('jwt_token');
 
         try {
-            const response = await fetch(`/api/v1/reviews/places/${placeId}/reviews`, {
+            const response = await fetch(`/api/v1/places/${placeId}/reviews`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const reviews = await response.json();
             console.log('Reviews:', reviews); // Debugging log
-            renderReviews(reviews);
+            renderReviews(reviews.reviews);
 
         } catch (error) {
             console.error('Error fetching reviews:', error);
@@ -102,12 +102,15 @@ document.addEventListener('DOMContentLoaded', function () {
     function renderReviews(reviews) {
         const reviewListSection = document.getElementById('review-list');
         reviewListSection.innerHTML = '';
-        if (reviews.length === 0) {
+        const validReviews = reviews.filter(
+          (review) => review && review.id && review.text && review.rating
+        );
+        if (validReviews.length === 0) {
             const noReviews = document.createElement('p');
             noReviews.textContent = 'No reviews available for this place.';
             reviewListSection.appendChild(noReviews);
         } else {
-            reviews.forEach(review => {
+            validReviews.forEach(review => {
                 const reviewCard = document.createElement('div');
                 reviewCard.classList.add('review-card');
 

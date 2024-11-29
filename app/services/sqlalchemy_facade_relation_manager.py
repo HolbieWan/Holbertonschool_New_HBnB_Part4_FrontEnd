@@ -154,6 +154,13 @@ class SQLAlchemyFacadeRelationManager:
             if places_ids_list:
                 for place_id in places_ids_list:
                     self.delete_place_and_associated_instances(place_id)
+
+            reviews_list = self.review_facade.review_repo.get_all()
+
+            if reviews_list:
+                for review in reviews_list:
+                    if review.user_id == user_id:
+                        self.review_facade.review_repo.delete(review.id)
             
             self.user_facade.user_repo.delete(user_id)
 

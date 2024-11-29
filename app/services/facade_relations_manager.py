@@ -384,7 +384,8 @@ class FacadeRelationManager:
             reviews_dict_list.append(review)
 
         if not reviews_dict_list:
-            raise ValueError(f"No reviews found for this place: {place_id}")
+            # raise ValueError(f"No reviews found for this place: {place_id}")
+            return reviews_dict_list
 
         return reviews_dict_list
 

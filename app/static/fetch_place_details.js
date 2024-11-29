@@ -88,12 +88,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to render reviews
     function renderReviews(reviews) {
         reviewListSection.innerHTML = '';
-        if (reviews.length === 0) {
+        const validReviews = reviews.filter(
+          (review) => review && review.id && review.text && review.rating
+        );
+        if (validReviews.length === 0) {
             const noReviews = document.createElement('p');
             noReviews.textContent = 'No reviews available for this place.';
             reviewListSection.appendChild(noReviews);
         } else {
-            reviews.forEach(review => {
+            validReviews.forEach(review => {
                 const reviewCard = document.createElement('div');
                 reviewCard.classList.add('review-card');
 
@@ -126,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         try {
-            const response = await fetch(`/api/v1/reviews/places/${placeId}/reviews`, {
+            const response = await fetch(`/api/v1/places/${placeId}/reviews`, {
                 method: 'GET',
                 headers: token ? { 'Authorization': `Bearer ${token}` } : {}
             });
@@ -140,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const reviews = await response.json();
             console.log('Reviews:', reviews);  // Log the reviews data
-            renderReviews(reviews);
+            renderReviews(reviews.reviews);
 
         } catch (error) {
             console.error('Error fetching reviews:', error);

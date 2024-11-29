@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const places = await response.json();
       console.log("Fetched places:", places); // Debug log
-      window.allUserPlaces = places;
-      renderPlaces(places);
+      window.allUserPlaces = places.places;
+      renderPlaces(places.places);
 
     } catch (error) {
       console.error("Error fetching places:", error);
-      alert("User not logged in. Please go to login page.");
+      alert("Error fetching places:", error);
     }
   }
 
@@ -52,14 +52,18 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const response = await fetch(`/api/v1/places/${placeID}`, {
         method: "DELETE",
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       console.log("Place delete response status:", response.status); // Debug log
 
       if (!response.ok) {
-        console.error("Failed to delete place");
-        alert("Failed to delete place:", error);
+        const errorMessage = await response.json();
+        console.error("Error deleting place:", errorMessage);
+        alert(`Error deleting place: ${errorMessage.message}`);
         return;
       }
 

@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Final Payload Sent:", JSON.stringify(placeData, null, 2));
 
     try {
-      const response = await fetch("/api/v1/places/", {
+      const response = await fetch(`/api/v1/users/${userId}/places`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

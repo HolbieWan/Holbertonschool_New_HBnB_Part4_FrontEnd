@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         deleteUser(userId);
     } else {
         console.log("User chose Cancel");
+        return;
     }
     logout();
     clearCookies();

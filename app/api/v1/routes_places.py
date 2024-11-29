@@ -213,14 +213,19 @@ class PlaceResource(Resource):
             current_user = get_jwt_identity()
             is_admin = current_user.get('is_admin', False)
             repo_type = current_app.config.get('REPO_TYPE', 'in_memory')
+            facade = current_app.extensions['HBNB_FACADE']
 
             if repo_type == 'in_DB':
                 facade_relation_manager = current_app.extensions['SQLALCHEMY_FACADE_RELATION_MANAGER']
             else:
                 facade_relation_manager = current_app.extensions['FACADE_RELATION_MANAGER']
 
-            if not is_admin and place_id != current_user["id"]:
-                raise ValueError('error: Unauthorized action, you can only modify your own data')
+            place = facade.place_facade.get_place(place_id)
+            if not place:
+                raise ValueError('error: Place not found')
+
+            if not is_admin and place["owner_id"] != current_user["id"]:
+                raise ValueError('error: Unauthorized action, you must be the owner of the place or admin to delete it')
 
             facade_relation_manager.delete_place_and_associated_instances(place_id)
 
@@ -512,6 +517,7 @@ class ReviewPlaceList(Resource):
             return reviews_response, 200
 
         except ValueError as e:
+            print(str(e))
             abort(400, str(e))
         
         except Exception as e:

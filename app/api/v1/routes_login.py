@@ -25,6 +25,7 @@ Models:
 from flask import Blueprint, current_app, request, abort, jsonify
 from flask_restx import Namespace, Resource, fields
 from flask_jwt_extended import create_access_token, jwt_required  # type: ignore
+from datetime import timedelta
 
 
 login_bp = Blueprint('login', __name__)
@@ -68,7 +69,7 @@ class Login(Resource):
                     raise ValueError("Error: invalid credentials")
 
             access_token = create_access_token(
-                identity={'id': str(user.id), 'is_admin': user.is_admin})
+                identity={'id': str(user.id), 'is_admin': user.is_admin}, expires_delta=timedelta(days=1))
 
         except ValueError as e:
             abort(400, str(e))
