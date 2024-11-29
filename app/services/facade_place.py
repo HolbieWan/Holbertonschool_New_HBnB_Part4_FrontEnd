@@ -202,4 +202,5 @@ class PlaceFacade():
             return [place.to_dict() for place in places]
         
         else:
-            raise ValueError(f"No place found for owner_id: {owner_id}")
+            # raise ValueError(f"No place found for owner_id: {owner_id}")
+            return []

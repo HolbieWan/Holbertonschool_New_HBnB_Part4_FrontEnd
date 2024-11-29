@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     amenities.forEach((amenity) => {
       const option = document.createElement("option");
-      option.value = amenity.id;
+      option.value = amenity.name;
       option.textContent = amenity.name;
       amenitiesDropdown.appendChild(option);
     });

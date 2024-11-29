@@ -72,14 +72,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const placeDescription = document.createElement('p');
         placeDescription.innerHTML = `<strong>Description:</strong> ${place.description}`;
 
+        const placeAmenities = document.createElement("p");
+        placeAmenities.innerHTML = `<strong>Amenities:</strong> ${place.amenities.join(", ")}`;
+
         const placeOwner = document.createElement('p');
-        placeOwner.innerHTML = `<strong>Owner:</strong> ${place.owner_id}`;
+        placeOwner.innerHTML = `<strong>Owner:</strong> ${place.owner_first_name}`;
 
         placeCard.appendChild(placeTitle);
         placeCard.appendChild(placeImage);
         placeCard.appendChild(placePrice);
         placeCard.appendChild(placeLocation);
         placeCard.appendChild(placeDescription);
+        placeCard.appendChild(placeAmenities);
         placeCard.appendChild(placeOwner);
 
         placeDetailsSection.appendChild(placeCard);

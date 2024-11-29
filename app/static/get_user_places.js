@@ -101,6 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = `/HBnB/place?id=${place.id}`;
       });
 
+      const amenitiesButton = document.createElement("button");
+      amenitiesButton.textContent = "Add amenity";
+      amenitiesButton.classList.add("amenities-button");
+      amenitiesButton.addEventListener("click", function () {
+        window.location.href = `/HBnB/places/${place.id}/amenities`;
+      });
+
       const updateButton = document.createElement("button");
       updateButton.textContent = "Update place";
       updateButton.classList.add("update-place-button");
@@ -130,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
       placeCard.appendChild(placePrice);
       placeCard.appendChild(placeLocation);
       placeCard.appendChild(detailsButton);
+      placeCard.appendChild(amenitiesButton);
       placeCard.appendChild(updateButton);
       placeCard.appendChild(deleteButton);
 

@@ -80,6 +80,10 @@ def home_register_new_user():
 def home_register_new_place():
     return render_template('register_new_place.html', current_page='register-place')
 
+@home_bp.route('/places/<place_id>/amenities')
+def home_add_amenity_to_place(place_id):
+    return render_template('add_amenity.html', current_page='add_amenity')
+
 @home_bp.route('/<user_id>/my_account')
 def home_user_account(user_id):
     return render_template('user_account.html', current_page='user_places')
