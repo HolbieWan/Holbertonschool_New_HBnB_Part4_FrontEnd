@@ -1,1 +1,14 @@
-{}
+{
+    "6c7cab8d-8e54-4793-b791-af5d06dcbc0a": {
+        "type": "review",
+        "id": "6c7cab8d-8e54-4793-b791-af5d06dcbc0a",
+        "text": "On the rock babe!!",
+        "rating": 4,
+        "place_id": "54650879-3650-4e0b-9f97-67ecb8911ffc",
+        "place_name": "Chez Johnny",
+        "user_id": "f7756c76-ff33-4a67-b174-b7dcf528e93f",
+        "user_first_name": "Nostra",
+        "created_at": "2024-11-30T00:54:59.672913",
+        "updated_at": "2024-11-30T00:54:59.672919"
+    }
+}

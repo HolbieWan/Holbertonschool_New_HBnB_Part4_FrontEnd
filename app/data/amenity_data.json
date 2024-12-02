@@ -1,1 +1,30 @@
-{}
+{
+    "ba8272a4-abd8-4a88-b291-4ddadd951e43": {
+        "type": "amenity",
+        "id": "ba8272a4-abd8-4a88-b291-4ddadd951e43",
+        "name": "Guitare \u00e9lectrique",
+        "created_at": "2024-11-30T00:46:22.180158",
+        "updated_at": "2024-11-30T00:46:22.180164"
+    },
+    "8934d67b-342c-4c6c-9851-72a6f2da9534": {
+        "type": "amenity",
+        "id": "8934d67b-342c-4c6c-9851-72a6f2da9534",
+        "name": "Boule de cristal",
+        "created_at": "2024-11-30T00:53:28.035618",
+        "updated_at": "2024-11-30T00:53:28.035630"
+    },
+    "a4e16fb1-f9fe-4a63-a53e-62113ab8423b": {
+        "type": "amenity",
+        "id": "a4e16fb1-f9fe-4a63-a53e-62113ab8423b",
+        "name": "Telescope",
+        "created_at": "2024-11-30T00:53:48.657050",
+        "updated_at": "2024-11-30T00:53:48.657058"
+    },
+    "87ec5080-ffe3-469f-a41f-699f5dd7ebcf": {
+        "type": "amenity",
+        "id": "87ec5080-ffe3-469f-a41f-699f5dd7ebcf",
+        "name": "Poney",
+        "created_at": "2024-11-30T01:02:45.867426",
+        "updated_at": "2024-11-30T01:02:45.867433"
+    }
+}
